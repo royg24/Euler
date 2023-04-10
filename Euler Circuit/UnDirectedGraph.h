@@ -9,5 +9,5 @@ public:
 	bool isGraphConnected();
 	bool areAllDegreesEven();
 	virtual bool isGraphEulerian();
-	virtual list<Vertex*>& findEulerCircuit(Vertex v);
+	virtual list<Vertex*>& findEulerCircuit(Vertex& v);
 };

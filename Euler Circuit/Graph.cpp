@@ -9,9 +9,9 @@ int Graph::getNumOfEdges()
 {
 	return numOfEdges;
 }
-vector<list<Vertex*>>& Graph::getNeighbors()
+vector<Vertex*>& Graph::getVertexes()
 {
-	return neighbors;
+	return vertexes;
 }
 
 void Graph::visit(Vertex& v)
@@ -20,5 +20,11 @@ void Graph::visit(Vertex& v)
 }
 list<Vertex*>& Graph::findCircuit(Vertex& v)
 {
-	
+	list<Vertex*> circuitFound = {&v};
+	Vertex* pv = &v;
+}
+
+ void Graph::markEdge(Vertex& v)
+{
+	 
 }

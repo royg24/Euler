@@ -9,12 +9,12 @@ class Graph
 protected:
 	int numOfVertexes = 0;
 	int numOfEdges = 0;
-	vector<list<Vertex*>> neighbors;
+	vector<Vertex*> vertexes;
 public:
 	//gettim
 	int getNumOfVertexes();
 	int getNumOfEdges();
-	vector<list<Vertex*>>& getNeighbors();
+	vector<Vertex*>& getVertexes();
 
 	void visit(Vertex& v);
 	virtual bool isGraphEulerian() = 0;
@@ -22,5 +22,6 @@ public:
 	virtual list<Vertex*>& findEulerCircuit(Vertex& v) = 0;
 	//finds a general circuit
 	list<Vertex*>& findCircuit(Vertex& v);
+	virtual void markEdge(Vertex& v);
 	
 };
