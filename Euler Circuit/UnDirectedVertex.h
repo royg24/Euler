@@ -8,6 +8,6 @@ private:
 	UnDirectedVertex* pReverseEdge = nullptr;
 public:
 	UnDirectedVertex(int num);
-	bool isDegreeEven();
+	virtual bool isDegreeEven();
 	friend class UnDirectedGraph;
 };
