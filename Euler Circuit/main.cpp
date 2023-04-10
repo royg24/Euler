@@ -11,9 +11,10 @@ void main()
 	UnDirectedVertex v4(4);
 	list<Vertex*> l1 = { &v2,&v3 };
 	list<Vertex*> l2 = { &v3 };
-	list<Vertex*> l3{ &v1, &v2, &v4 };
-	list<Vertex*> l4{ &v3 };
-	vector<list<Vertex*>> v = { l1, l2, l3, l4 };
+	list<Vertex*> l3{ &v4 };
+	list<Vertex*> l4{};
+	vector<list<Vertex*>> v = { {}, l1, l2, l3, l4 };
 
-	UnDirectedGraph g1(5, 4, v);
+	UnDirectedGraph g1(4, 4, v);
+	bool b = g1.areAllDegreesEven();
 }

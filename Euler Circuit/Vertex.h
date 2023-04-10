@@ -11,5 +11,6 @@ protected:
 	Vertex(int num) : numOfVertex(num) {}
 public:
 	virtual ~Vertex(){}
-	friend class Graph;
+	friend class UnDirectedGraph;
+	friend class DirectedGraph;
 };

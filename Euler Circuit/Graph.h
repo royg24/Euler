@@ -16,7 +16,7 @@ public:
 	int getNumOfEdges();
 	vector<Vertex*>& getVertexes();
 
-	void visit(Vertex& v);
+	bool visit(Vertex& v);
 	virtual bool isGraphEulerian() = 0;
 	// assume that the graph is eulerian
 	virtual list<Vertex*>& findEulerCircuit(Vertex& v) = 0;
