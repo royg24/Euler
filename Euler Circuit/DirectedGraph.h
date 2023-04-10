@@ -9,6 +9,8 @@ public:
 	bool isInDegreeEqualsToOutDegreeInEachVertex();
 	virtual bool isGraphEulerian();
 	virtual list<Vertex*>& findEulerCircuit(Vertex& v);
-	DirectedGraph& createGT();
-	
+	DirectedGraph& buildGT();
+	void visit(Vertex& v);
+	list<Vertex*> findCircuit(Vertex& v);
+
 };

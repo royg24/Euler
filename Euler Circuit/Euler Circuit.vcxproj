@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DirectedGraph.cpp" />
     <ClCompile Include="DirectedVertex.cpp" />
     <ClCompile Include="DirectedVertex.h" />
     <ClCompile Include="Graph.cpp" />
