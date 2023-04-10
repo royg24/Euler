@@ -15,5 +15,5 @@ void main()
 	list<Vertex*> l4{ &v3 };
 	vector<list<Vertex*>> v = { l1, l2, l3, l4 };
 
-	UnDirectedGraph g(5, 4, v);
+	UnDirectedGraph g1(5, 4, v);
 }
