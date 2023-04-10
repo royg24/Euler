@@ -8,6 +8,6 @@ public:
 	bool isGraphStronglyConnected();
 	bool isInDegreeEqualsToOutDegreeInEachVertex();
 	virtual bool isGraphEulerian();
-	virtual list<Vertex>& findEulerCircuit(Vertex v);
+	virtual list<Vertex*>& findEulerCircuit(Vertex v);
 	DirectedGraph& createGT();
 };
