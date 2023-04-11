@@ -6,11 +6,11 @@ class Vertex
 protected:
 	int numOfVertex;
 	list<Vertex*> neighbors;
-	bool used = false;
 	Vertex* pos = nullptr;
 	Vertex(int num) : numOfVertex(num) {}
 public:
+	bool used = false;
+
 	virtual ~Vertex(){}
-	friend class UnDirectedGraph;
-	friend class DirectedGraph;
+	friend class Graph;
 };

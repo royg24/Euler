@@ -18,14 +18,14 @@ bool Graph::visit(Vertex& v)
 {
 	return true;
 }
-list<Vertex*>& Graph::findCircuit(Vertex& v)
-{
-	list<Vertex*> circuitFound = {&v};
-	Vertex* pv = &v;
-	return circuitFound;
-}
+//TODO
+//list<Vertex*>& Graph::findCircuit(const Vertex& v)
+//{
+//	
+//}
 
- void Graph::markEdge(Vertex& v)
+//TODO
+ void Graph::markEdge(const Vertex& v)
 {
 	 
 }

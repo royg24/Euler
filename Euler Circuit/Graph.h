@@ -19,9 +19,9 @@ public:
 	bool visit(Vertex& v);
 	virtual bool isGraphEulerian() = 0;
 	// assume that the graph is eulerian
-	virtual list<Vertex*>& findEulerCircuit(Vertex& v) = 0;
+	virtual list<Vertex*>& findEulerCircuit(const Vertex& v) = 0;
 	//finds a general circuit
-	list<Vertex*>& findCircuit(Vertex& v);
-	virtual void markEdge(Vertex& v);
+	list<Vertex*>& findCircuit(const Vertex& v);
+	virtual void markEdge(const Vertex& v);
 	
 };

@@ -1,5 +1,5 @@
 #include "UnDirectedGraph.h"
-UnDirectedGraph::UnDirectedGraph(int numOfVertexes, int numOfEdges, vector<list<Vertex*>>& neighbors) 
+UnDirectedGraph::UnDirectedGraph(int numOfVertexes, int numOfEdges, const vector<list<Vertex*>>& neighbors) 
 {
 	UnDirectedVertex* reverseVertexInVector;
 	UnDirectedVertex* currentVertexInVector;
@@ -14,7 +14,7 @@ UnDirectedGraph::UnDirectedGraph(int numOfVertexes, int numOfEdges, vector<list<
 	}
 	for (int i = 0; i <= numOfVertexes; i++)
 	{
-		list<Vertex*>::iterator itr = neighbors[i].begin();
+		list<Vertex*>::const_iterator itr = neighbors[i].begin();
 		for (int j = 0; j < neighbors[i].size(); j++)
 		{
 			// turn vertex into undirected vertex for the array
@@ -57,6 +57,7 @@ bool UnDirectedGraph::isGraphEulerian()
 }
 list<Vertex*>& UnDirectedGraph::findEulerCircuit(Vertex& v)
 {
+	//TODO
 	//needs to program to compile, has no meaning
 	list<Vertex*> vv = {};
 	return vv;
