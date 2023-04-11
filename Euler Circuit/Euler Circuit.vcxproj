@@ -131,6 +131,7 @@
     <ClCompile Include="DirectedVertex.cpp" />
     <ClCompile Include="DirectedVertex.h" />
     <ClCompile Include="Graph.cpp" />
+    <ClCompile Include="GraphBuilder.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="UnDirectedGraph.cpp" />
     <ClCompile Include="UnDirectedVertex.cpp" />
@@ -139,6 +140,7 @@
   <ItemGroup>
     <ClInclude Include="DirectedGraph.h" />
     <ClInclude Include="Graph.h" />
+    <ClInclude Include="GraphBuilder.h" />
     <ClInclude Include="UnDirectedGraph.h" />
     <ClInclude Include="UnDirectedVertex.h" />
   </ItemGroup>

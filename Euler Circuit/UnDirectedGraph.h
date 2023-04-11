@@ -10,4 +10,5 @@ public:
 	bool areAllDegreesEven();
 	virtual bool isGraphEulerian();
 	virtual list<Vertex*>& findEulerCircuit(Vertex& v);
+	friend class GraphBuilder;
 };

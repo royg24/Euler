@@ -13,4 +13,5 @@ public:
 	virtual ~Vertex(){}
 	friend class DirectedGraph;
 	friend class UnDirectedGraph;
+	friend class Graph;
 };

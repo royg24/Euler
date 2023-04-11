@@ -69,6 +69,7 @@ bool DirectedGraph::isInDegreeEqualsToOutDegreeInEachVertex()
 			return false;
 		}
 	}
+	return true;
 }
 bool DirectedGraph::isGraphEulerian()
 {
@@ -116,8 +117,8 @@ DirectedGraph& DirectedGraph::buildGT()
 			neighbor->outDegree++;
 			//indegree update
 		}
-		return *GT;
 	}
+	return *GT;
 }
 list<Vertex*> DirectedGraph::findCircuit(Vertex& v)
 {

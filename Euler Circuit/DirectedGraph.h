@@ -12,5 +12,5 @@ public:
 	DirectedGraph& buildGT();
 	void visit(Vertex& v);
 	list<Vertex*> findCircuit(Vertex& v);
-
+	friend class GraphBuilder;
 };

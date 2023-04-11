@@ -31,3 +31,17 @@ vector<Vertex*>& Graph::getVertexes()
 {
 	 
 }
+
+ Graph::~Graph()
+ {
+	 for (int i = 0; i < numOfVertexes; i++)
+	 {
+		 list<Vertex*>::iterator itr = vertexes[i]->neighbors.begin();
+		 	list<Vertex*>::iterator itrEnd = vertexes[i]->neighbors.end();
+		 	for (; itr != itrEnd; ++itr)
+		 	{
+		 		delete(*itr);
+		 	}
+		 delete(vertexes[i]);
+	 }
+ }
