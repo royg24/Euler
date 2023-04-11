@@ -14,10 +14,6 @@ vector<Vertex*>& Graph::getVertexes()
 	return vertexes;
 }
 
-bool Graph::visit(Vertex& v)
-{
-	return true;
-}
 //TODO
 //list<Vertex*>& Graph::findCircuit(const Vertex& v)
 //{

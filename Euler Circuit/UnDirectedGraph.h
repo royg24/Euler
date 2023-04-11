@@ -5,7 +5,7 @@
 class UnDirectedGraph : public Graph
 {
 public:
-	UnDirectedGraph(int numOfVertexes, int numOfEdges, const vector<list<Vertex*>>& neighbor);
+	UnDirectedGraph(int numOfVertexes, int numOfEdges, const vector<list<int>>& neighbor);
 	bool isGraphConnected();
 	bool areAllDegreesEven();
 	virtual bool isGraphEulerian();

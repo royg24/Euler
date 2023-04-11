@@ -1,5 +1,5 @@
 #include "UnDirectedGraph.h"
-UnDirectedGraph::UnDirectedGraph(int numOfVertexes, int numOfEdges, const vector<list<Vertex*>>& neighbors) 
+UnDirectedGraph::UnDirectedGraph(int numOfVertexes, int numOfEdges, const vector<list<int>>& neighbors) 
 {
 	UnDirectedVertex* reverseVertexInVector;
 	UnDirectedVertex* currentVertexInVector;
@@ -14,29 +14,31 @@ UnDirectedGraph::UnDirectedGraph(int numOfVertexes, int numOfEdges, const vector
 	}
 	for (int i = 0; i <= numOfVertexes; i++)
 	{
-		list<Vertex*>::const_iterator itr = neighbors[i].begin();
+		list<int>::const_iterator itr = neighbors[i].begin();
 		for (int j = 0; j < neighbors[i].size(); j++)
 		{
 			// turn vertex into undirected vertex for the array
 			currentVertexInVector = dynamic_cast<UnDirectedVertex*>(vertexes[i]);
-			reverseVertexInVector = dynamic_cast<UnDirectedVertex*>(vertexes[(*itr)->numOfVertex]);
+			reverseVertexInVector = dynamic_cast<UnDirectedVertex*>(vertexes[(*itr)]);
 			//create the elements of the lists
-			currentVertex = new UnDirectedVertex(currentVertexInVector->numOfVertex);
-			reverseVertex = new UnDirectedVertex(reverseVertexInVector->numOfVertex);
+			currentVertex = new UnDirectedVertex(i);
+			reverseVertex = new UnDirectedVertex(*itr);
 			//add each vertex to the other's neighbor
 			vertexes[i]->neighbors.push_back(reverseVertex);
-			vertexes[reverseVertexInVector->numOfVertex]->neighbors.push_back(currentVertex);
+			vertexes[*itr]->neighbors.push_back(currentVertex);
+			//update their degree
+			currentVertexInVector->degree++;
+			reverseVertexInVector->degree++;
 			//make them point to each other
 			currentVertex->pReverseEdge = reverseVertex;
 			reverseVertex->pReverseEdge = currentVertex;
 			++itr;
 		}
-		currentVertexInVector->degree = currentVertexInVector->neighbors.size();
 	}
 }
 bool UnDirectedGraph::isGraphConnected()
 {
-	return visit(*vertexes[1]);
+	return true;
 }
 bool UnDirectedGraph::areAllDegreesEven()
 {

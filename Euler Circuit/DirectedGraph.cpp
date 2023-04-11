@@ -2,7 +2,7 @@
 #include "DirectedVertex.h"
 
 
-DirectedGraph::DirectedGraph(int numOfVertexes, int numOfEdges, const vector<list<Vertex*>>& neighbor) 
+DirectedGraph::DirectedGraph(int numOfVertexes, int numOfEdges, const vector<list<int>>& neighbor) 
 {
 	//TODO
 }
@@ -81,7 +81,7 @@ list<Vertex*>& DirectedGraph::findEulerCircuit(Vertex& v)
 }
 DirectedGraph& DirectedGraph::buildGT()
 {
-	DirectedGraph* GT = new DirectedGraph(numOfVertexes, 0, vector<list<Vertex*>>(numOfVertexes));
+	DirectedGraph* GT = new DirectedGraph(numOfVertexes, 0, vector<list<int>>(numOfVertexes));
 
 	for (auto it = vertexes.begin(); it != vertexes.end(); ++it)
 	{
@@ -118,4 +118,8 @@ list<Vertex*> DirectedGraph::findCircuit(Vertex& v)
 		}
 	}
 	return L;
+}
+void DirectedGraph::visit(Vertex& v)
+{
+
 }
