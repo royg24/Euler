@@ -2,9 +2,31 @@
 #include "DirectedVertex.h"
 
 
-DirectedGraph::DirectedGraph(int numOfVertexes, int numOfEdges, const vector<list<int>>& neighbor) 
+DirectedGraph::DirectedGraph(int numOfVertexes, int numOfEdges, const vector<list<int>>& neighbor) : Graph(numOfVertexes, numOfEdges)
 {
-	//TODO
+	DirectedVertex* endVertex;
+	DirectedVertex* startVertex;
+	for (int i = 0; i <= numOfVertexes; i++)
+	{
+		vertexes[i] = new DirectedVertex(i);
+	}
+	for (int i = 1; i <= numOfVertexes; i++)
+	{
+		list<int>::const_iterator itr = neighbor[i].begin();
+		//make vertex into directed vertex
+		for (int j = 0; j < neighbor[i].size(); j++, ++itr)
+		{
+			startVertex = dynamic_cast<DirectedVertex*>(vertexes[i]);
+			endVertex = dynamic_cast<DirectedVertex*>(vertexes[(*itr)]);
+			//create neighbor for the vertex i
+			vertexes[i]->neighbors.push_back(new DirectedVertex(*itr));
+			//update indegree and outdegree
+			startVertex->outDegree++;
+			endVertex->inDegree++;
+		}
+		
+	}
+	
 }
 bool DirectedGraph::isGraphStronglyConnected()
 {
@@ -81,7 +103,7 @@ list<Vertex*>& DirectedGraph::findEulerCircuit(Vertex& v)
 }
 DirectedGraph& DirectedGraph::buildGT()
 {
-	DirectedGraph* GT = new DirectedGraph(numOfVertexes, 0, vector<list<int>>(numOfVertexes));
+	DirectedGraph* GT = new DirectedGraph(numOfVertexes);
 
 	for (auto it = vertexes.begin(); it != vertexes.end(); ++it)
 	{
@@ -92,6 +114,7 @@ DirectedGraph& DirectedGraph::buildGT()
 			GT->vertexes[neighbor->numOfVertex]->neighbors.push_back(GT->vertexes[v->numOfVertex]);
 			GT->numOfEdges++;
 			neighbor->outDegree++;
+			//indegree update
 		}
 		return *GT;
 	}
@@ -121,5 +144,12 @@ list<Vertex*> DirectedGraph::findCircuit(Vertex& v)
 }
 void DirectedGraph::visit(Vertex& v)
 {
-
+		v.used = true;
+		for (auto it = v.neighbors.begin(); it != v.neighbors.end(); it++)
+		{
+			if (!(*it)->used)
+			{
+				visit(**it);
+			}
+		}
 }

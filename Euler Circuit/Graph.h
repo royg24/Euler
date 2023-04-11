@@ -11,6 +11,8 @@ protected:
 	int numOfEdges = 0;
 	vector<Vertex*> vertexes;
 public:
+	//c'tor
+	Graph(int numOfVertexes = 0, int numOfEdges = 0, const vector<list<int>>& neighbor = {});
 	//gettim
 	int getNumOfVertexes();
 	int getNumOfEdges();

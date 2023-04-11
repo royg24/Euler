@@ -1,13 +1,10 @@
 #include "UnDirectedGraph.h"
-UnDirectedGraph::UnDirectedGraph(int numOfVertexes, int numOfEdges, const vector<list<int>>& neighbors) 
+UnDirectedGraph::UnDirectedGraph(int numOfVertexes, int numOfEdges, const vector<list<int>>& neighbors) : Graph(numOfVertexes, numOfEdges)
 {
 	UnDirectedVertex* reverseVertexInVector;
 	UnDirectedVertex* currentVertexInVector;
 	UnDirectedVertex* reverseVertex;
 	UnDirectedVertex* currentVertex;
-	this->numOfVertexes = numOfVertexes;
-	this->numOfEdges = numOfEdges;
-	vertexes.resize(numOfVertexes + 1);
 	for (int i = 0; i <= numOfVertexes; i++)
 	{
 		vertexes[i] = new UnDirectedVertex(i);
@@ -15,7 +12,7 @@ UnDirectedGraph::UnDirectedGraph(int numOfVertexes, int numOfEdges, const vector
 	for (int i = 0; i <= numOfVertexes; i++)
 	{
 		list<int>::const_iterator itr = neighbors[i].begin();
-		for (int j = 0; j < neighbors[i].size(); j++)
+		for (int j = 0; j < neighbors[i].size(); j++, ++itr)
 		{
 			// turn vertex into undirected vertex for the array
 			currentVertexInVector = dynamic_cast<UnDirectedVertex*>(vertexes[i]);
@@ -32,12 +29,12 @@ UnDirectedGraph::UnDirectedGraph(int numOfVertexes, int numOfEdges, const vector
 			//make them point to each other
 			currentVertex->pReverseEdge = reverseVertex;
 			reverseVertex->pReverseEdge = currentVertex;
-			++itr;
 		}
 	}
 }
 bool UnDirectedGraph::isGraphConnected()
 {
+	//need visit
 	return true;
 }
 bool UnDirectedGraph::areAllDegreesEven()

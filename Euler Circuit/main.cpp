@@ -8,9 +8,8 @@ void main()
 	list<int> l1 = { 2,3 };
 	list<int> l2 = { 3 };
 	list<int> l3{ 4 };
-	list<int> l4{};
+	list<int> l4{ 1 };
 	vector<list<int>> v = { {}, l1, l2, l3, l4 };
 
-	UnDirectedGraph g1(4, 4, v);
-	bool b = g1.areAllDegreesEven();
+	DirectedGraph g1(4, 4, v);
 }

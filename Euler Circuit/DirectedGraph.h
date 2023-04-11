@@ -4,7 +4,7 @@
 class DirectedGraph : public Graph
 {
 public:
-	DirectedGraph(int numOfVertexes, int numOfEdges, const vector<list<int>>& neighbor);
+	DirectedGraph(int numOfVertexes = 0, int numOfEdges = 0, const vector<list<int>>& neighbor = {});
 	bool isGraphStronglyConnected();
 	bool isInDegreeEqualsToOutDegreeInEachVertex();
 	virtual bool isGraphEulerian();
