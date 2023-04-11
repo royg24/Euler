@@ -7,10 +7,10 @@ protected:
 	int numOfVertex;
 	list<Vertex*> neighbors;
 	Vertex* pos = nullptr;
+	bool used = false;
 	Vertex(int num) : numOfVertex(num) {}
 public:
-	bool used = false;
-
 	virtual ~Vertex(){}
-	friend class Graph;
+	friend class DirectedGraph;
+	friend class UnDirectedGraph;
 };
