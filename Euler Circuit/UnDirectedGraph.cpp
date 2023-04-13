@@ -27,15 +27,17 @@ UnDirectedGraph::UnDirectedGraph(int numOfVertexes, int numOfEdges, const vector
 			currentVertexInVector->degree++;
 			reverseVertexInVector->degree++;
 			//make them point to each other
-			currentVertex->pReverseEdge = reverseVertex;
-			reverseVertex->pReverseEdge = currentVertex;
+			(currentVertex->pReverseEdge) = reverseVertex;
+			(reverseVertex->pReverseEdge) = currentVertex;
 		}
+		vertexes[i]->pos = vertexes[i]->neighbors.begin();
 	}
 }
 bool UnDirectedGraph::isGraphConnected()
 {
-	//need visit
-	return true;
+	bool res = isVisitAllVertexes();
+	unUsedAllVertexes();
+	return res;
 }
 bool UnDirectedGraph::areAllDegreesEven()
 {
@@ -54,10 +56,9 @@ bool UnDirectedGraph::isGraphEulerian()
 {
 	return (this->isGraphConnected() && this->areAllDegreesEven());
 }
-list<Vertex*>& UnDirectedGraph::findEulerCircuit(Vertex& v)
+void UnDirectedGraph::markEdge(Vertex& v, Vertex& u)
 {
-	//TODO
-	//needs to program to compile, has no meaning
-	list<Vertex*> vv = {};
-	return vv;
+	Graph::markEdge(*vertexes[u.numOfVertex], v);
+	dynamic_cast<UnDirectedVertex&>(u).pReverseEdge->used = true;
+	dynamic_cast<UnDirectedVertex&>(v).pos++;
 }

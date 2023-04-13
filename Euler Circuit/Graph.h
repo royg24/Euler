@@ -20,10 +20,14 @@ public:
 	void visit(Vertex& v);
 	virtual bool isGraphEulerian() = 0;
 	// assume that the graph is eulerian
-	virtual list<Vertex*>& findEulerCircuit(Vertex& v) = 0;
+	void findEulerCircuit(list<int>& EulerCircuit);
 	//finds a general circuit
-	list<Vertex*>& findCircuit(Vertex& v);
-	virtual void markEdge(const Vertex& v);
+	void findCircuit(Vertex& v, list<int>& res);
+	virtual void markEdge(Vertex& v, Vertex& u);
+	void findPath(Vertex& v, Vertex& u, list<int>& L);
+	bool isVisitAllVertexes();
+	void unUsedAllVertexes();
+	void printEulerCircuit(list<int> Euler);
 	~Graph();
 	
 };

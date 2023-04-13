@@ -8,9 +8,7 @@ public:
 	bool isGraphStronglyConnected();
 	bool isInDegreeEqualsToOutDegreeInEachVertex();
 	virtual bool isGraphEulerian();
-	virtual list<Vertex*>& findEulerCircuit(Vertex& v);
 	DirectedGraph& buildGT();
-	void visit(Vertex& v);
-	list<Vertex*> findCircuit(Vertex& v);
+	void markEdge(Vertex& v, Vertex& u);
 	friend class GraphBuilder;
 };

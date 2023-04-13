@@ -6,36 +6,47 @@ using namespace std;
 
 int main(void)
 {
-	//list<int> l1 = { 2,3 };
-	//list<int> l2 = { 3 };
-	//list<int> l3{ 4 };
-	//list<int> l4{ 1 };
-	//vector<list<int>> v = { {}, l1, l2, l3, l4 };
-	//DirectedGraph g1(4, 4, v);
 	try
 	{
 		char type;
 		int n, m;
-		cout << "Is graph directec y/n" << endl;
+		cout << "Is the graph directed: y/n" << endl;
 		cin >> type;
-		cout << "Enter the number of vertexes in graph" << endl;
 		cin >> n;
-		cout << "Enter the number of edges in graph" << endl;
 		cin >> m;
 
 		GraphBuilder gb(type, n, m);
+		list<int> res;
 		if (type == 'y')
 		{
 			//directed graph
 			DirectedGraph* g = gb.BuildDirectedGraph();
-
+			// check if graph eulerian
+			if (g->isGraphEulerian())
+			{
+				g->findEulerCircuit(res);
+				g->printEulerCircuit(res);
+			}
+			else
+			{
+				cout << "The graph is not aulerian" << endl;
+			}
 			delete(g);
 		}
 		else
 		{
 			//undirected graph
 			UnDirectedGraph* ug = gb.BuildUnDirectedGraph();
-
+			if (ug->isGraphEulerian())
+			{
+				ug->findEulerCircuit(res);
+		
+				ug->printEulerCircuit(res);
+			}
+			else
+			{
+				cout << "The graph is not aulerian" << endl;
+			}
 			delete(ug);
 		}
 	}
@@ -46,7 +57,7 @@ int main(void)
 	}
 	catch (...)
 	{
-		cout << "invalid input!" << endl;
+		cout << "invalid input" << endl;
 		exit(1);
 	}
 	return 0;

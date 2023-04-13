@@ -17,19 +17,19 @@ void GraphBuilder::isDataVaild()
 	int maxNumOfEdgesForDirectedGraph = numOfVertexes * (numOfVertexes - 1);
 	if (type != 'n' && type != 'y')
 	{
-		throw("type can be only n or y");
+		throw("invalid input");
 	}
 	if (numOfVertexes < 0 || numOfEdges < 0)
 	{
-		throw("Amount of edges and vertexes cannot be a negative number!");
+		throw("invalid input");
 	}
 	else if (type == Directed && numOfEdges > maxNumOfEdgesForDirectedGraph)
 	{
-		throw("This amount of edges is to big for a directed graph!");
+		throw("invalid input");
 	}
 	else if (type == UnDirected && numOfEdges > maxNumOfEdgesForUnDirectedGraph)
 	{
-		throw("This amount of edges is to big for an undirected graph!");
+		throw("invalid input");
 	}
 }
 Graph* GraphBuilder::BuildGraph()
@@ -48,7 +48,7 @@ Graph* GraphBuilder::BuildGraph()
 		}
 		else
 		{
-			throw("Edge values cannot be bigger than the amount of vertexes");
+			throw("invalid input");
 		}
 	}
 	if (type == Directed)

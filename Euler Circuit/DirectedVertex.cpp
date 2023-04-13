@@ -2,5 +2,14 @@
 
 bool DirectedVertex::isInAndOutDegEqual()
 {
-	return (inDegree == outDegree);
+	bool res;
+	if (inDegree == outDegree)
+	{
+		res = true;
+	}
+	else
+	{
+		res = false;
+	}
+	return res;
 }
